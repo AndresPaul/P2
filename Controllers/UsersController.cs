@@ -19,9 +19,9 @@ namespace P2.Controllers
             return Ok(_userManager.GetUsers());
         }
         [HttpPost]
-        public IActionResult PostUsers()
+        public IActionResult PostUsers(User user)
         {
-            return Ok();
+            return Ok(_userManager.PostUser(user));
         }
         [HttpPut]
         public IActionResult PutUsers()
