@@ -7,5 +7,25 @@ namespace P2.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
+        [HttpGet]
+        public IActionResult GetUsers()
+        {
+            return Ok(new { name = "Juan", age = 42 });
+        }
+        [HttpPost]
+        public IActionResult PostUsers()
+        {
+            return Ok();
+        }
+        [HttpPut]
+        public IActionResult PutUsers()
+        {
+            return Ok();
+        }
+        [HttpDelete]
+        public IActionResult DeleteUsers()
+        {
+            return Ok();
+        }
     }
 }
