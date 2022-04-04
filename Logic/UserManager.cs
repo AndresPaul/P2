@@ -26,27 +26,15 @@ namespace Logic
             Users.Add(user);
             return user;
         }
-
         public User PutUser(User user)
         {
-            /*
             var userToUpdate = Users.Find(u => u.Id == user.Id);
             userToUpdate.Name = user.Name;
             userToUpdate.Surname = user.Surname;
             userToUpdate.Email = user.Email;
             return userToUpdate;
-            */
-            return null;
         }
-
-        public User DeleteUser(int id)
-        {/*
-            var userToDelete = Users.Find(u => u.Id == id);
-            Users.Remove(userToDelete);
-            return userToDelete;
-         */
-            return null;
-        }
+    
 
     }
 }

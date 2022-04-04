@@ -24,10 +24,10 @@ namespace P2.Controllers
             return Ok(_userManager.PostUser(user));
         }
         [HttpPut]
-        public IActionResult PutUsers()
+        public IActionResult PutUsers(User user)
         {
-            return Ok();
-        }
+            return Ok(_userManager.PutUser(user));
+        }       
         [HttpDelete]
         public IActionResult DeleteUsers()
         {
