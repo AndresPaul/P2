@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Logic;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace P2.Controllers
@@ -7,10 +8,15 @@ namespace P2.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
+        private IUserManager _userManager;
+        public UsersController(IUserManager userManager)
+        {
+            _userManager = userManager;
+        }
         [HttpGet]
         public IActionResult GetUsers()
         {
-            return Ok(new { name = "Juan", age = 42 });
+            return Ok(_userManager.GetUsers());
         }
         [HttpPost]
         public IActionResult PostUsers()

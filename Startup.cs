@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.OpenApi.Models;
+using Logic;
 
 namespace P2
 {
@@ -33,13 +34,16 @@ namespace P2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            
+            services.AddSingleton<IUserManager, UserManager>();
+           
             services.AddSwaggerGen(options =>
             {
                 var groupName = "v1";
 
                 options.SwaggerDoc(groupName, new OpenApiInfo
                 {
-                    Title = $"Foo {groupName}",
+                    Title = $"{Configuration.GetSection("Application").GetSection("Title").Value} {groupName}",
                     Version = groupName,
                     Description = "PRACTICA 2",
                     Contact = new OpenApiContact

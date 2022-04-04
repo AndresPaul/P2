@@ -3,27 +3,50 @@ using System.Collections.Generic;
 
 namespace Logic
 {
-    public class UserManager
+    public class UserManager : IUserManager
     {
-        public List<User> Users{get;set;}
-        public List<User> GetUsers()
+        public List<User> Users {get;set;}
+        public UserManager()
         {
-
-            return new List<User>
+            Users = new List<User>()
             {
-                 new User { Id = 1, Name = "Juan", Surname = "Doe", Email = "" }
+                new User() { Name = "Paul" },
+                new User() { Name = "Andres" },
+                //new User(){ Id = 1, Name = "John", Surname = "Doe", Email = "",},
+                //new User() { Id = 2, Name = "Jane", Surname = "Doe", Email = "", },
             };
         }
-        public User PostUsers(User user)
+        public List<User> GetUsers()
+        {
+            return Users;
+        }
+        
+        public User PostUser(User user)
         {
             Users.Add(user);
             return user;
         }
 
-        /*public User PutUsers(User user)
+        public User PutUser(User user)
         {
-            return new User { Id = 1, Name = "Juan", Surname = "Doe", Email = "" }
-        }*/
+            /*
+            var userToUpdate = Users.Find(u => u.Id == user.Id);
+            userToUpdate.Name = user.Name;
+            userToUpdate.Surname = user.Surname;
+            userToUpdate.Email = user.Email;
+            return userToUpdate;
+            */
+            return null;
+        }
+
+        public User DeleteUser(int id)
+        {/*
+            var userToDelete = Users.Find(u => u.Id == id);
+            Users.Remove(userToDelete);
+            return userToDelete;
+         */
+            return null;
+        }
 
     }
 }
