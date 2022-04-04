@@ -12,8 +12,8 @@ namespace Logic
             {
                 //new User() { Name = "Paul" },
                 //new User() { Name = "Andres" },
-                new User(){ Id = 1, Name = "Andres", Surname = "Mont", Email = "",},
-                new User() { Id = 2, Name = "Paul", Surname = "Cesp", Email = "", },
+                new User(){ Id = 1, Name = "Andres", Surname = "Mont", Email = "andres@mail.com",},
+                new User() { Id = 2, Name = "Paul", Surname = "Cesp", Email = "paul@mail.com", },
             };
         }
         public List<User> GetUsers()
@@ -34,7 +34,12 @@ namespace Logic
             userToUpdate.Email = user.Email;
             return userToUpdate;
         }
-    
+        public User DeleteUser(int id)
+        {
+            var userToDelete = Users.Find(u => u.Id == id);
+            Users.Remove(userToDelete);
+            return userToDelete;
+        }
 
     }
 }

@@ -29,9 +29,9 @@ namespace P2.Controllers
             return Ok(_userManager.PutUser(user));
         }       
         [HttpDelete]
-        public IActionResult DeleteUsers()
+        public IActionResult DeleteUsers(int id)
         {
-            return Ok();
+            return Ok(_userManager.DeleteUser(id));
         }
     }
 }
